@@ -3,7 +3,8 @@ import { NavController } from 'ionic-angular';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';  
 import { map } from 'rxjs/operators';
-import { Platillo} from '../../commons/platillo'
+import { Platillo } from '../../commons/platillo';
+import { BebidasPage } from '../bebidas/bebidas';
 
 @Component({
   selector: 'page-home',
@@ -15,7 +16,7 @@ export class HomePage {
 
   platillos: Observable<Platillo[]>;
 
-  constructor(private readonly afs: AngularFirestore) {
+  constructor(private readonly afs: AngularFirestore, private navCr: NavController) {
 
                 this.itemsCollection = afs.collection<Platillo>('platillos');
                 this.platillos = this.itemsCollection.snapshotChanges().pipe(
@@ -25,6 +26,11 @@ export class HomePage {
                     return { id, ...data };
                   }))
                 );   
+  }
+
+  goDrinks(){
+    console.log("HOa");
+    this.navCr.push( BebidasPage );
   }
 
 }

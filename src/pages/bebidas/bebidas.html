@@ -1,24 +1,23 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Platillos
+      Bebidas
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   
-  <ion-list *ngFor="let platillo of platillos | async">
+  <ion-list *ngFor="let bebida of bebidas | async">
     <ion-item>
       <ion-thumbnail item-start>
-        <img src={{platillo.img}}>
+        <img src={{bebida.img}}>
       </ion-thumbnail>
-      <h2>{{platillo.nombre}}</h2>
-      <p>{{platillo.tipo}}</p>
+      <h2>{{bebida.nombre}}</h2>
+      <p>{{bebida.tipo}}</p>
       <button ion-button clear item-end>Revisar</button>
     </ion-item>
   </ion-list>
 
-  <button ion-button block (click)="goDrinks()" type="submit">Ver bebidas</button>
 
 </ion-content>

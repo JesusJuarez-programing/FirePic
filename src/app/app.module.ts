@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { BebidasPage } from '../pages/bebidas/bebidas';
 
 //plugins angularfire2
 import { AngularFireModule } from 'angularfire2';
@@ -16,7 +17,8 @@ import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    BebidasPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import { environment } from '../environments/environment';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    BebidasPage
   ],
   providers: [
     StatusBar,
