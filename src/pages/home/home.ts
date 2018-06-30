@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Platillo } from '../../commons/platillo';
 import { BebidasPage } from '../bebidas/bebidas';
+import { ModalController } from 'ionic-angular';
+import { AddPage } from '../add/add';
 
 @Component({
   selector: 'page-home',
@@ -16,7 +18,7 @@ export class HomePage {
 
   platillos: Observable<Platillo[]>;
 
-  constructor(private readonly afs: AngularFirestore, private navCr: NavController) {
+  constructor(private readonly afs: AngularFirestore, private navCr: NavController, public modalCtrl: ModalController) {
 
                 this.itemsCollection = afs.collection<Platillo>('platillos');
                 this.platillos = this.itemsCollection.snapshotChanges().pipe(
@@ -31,6 +33,11 @@ export class HomePage {
   goDrinks(){
     console.log("HOa");
     this.navCr.push( BebidasPage );
+  }
+
+  addDish(){
+    const modal = this.modalCtrl.create(AddPage);
+    modal.present();
   }
 
 }

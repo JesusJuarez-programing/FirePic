@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>
+      <button ion-button clear item-end (tap)="close()">Cerrar</button>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list>
+    
+      <ion-item>
+        <ion-label fixed>Nombre</ion-label>
+        <ion-input [(ngModel)]="nombre" type="text" value=""></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label fixed>Sabor</ion-label>
+        <ion-input [(ngModel)]="tipo" type="text"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <button ion-button (tap)="getPicture()" ><ion-icon name="images"> Seleccionar Imagen</ion-icon></button>
+      </ion-item>
+
+      <button ion-button block (tap)="agregarPlatillo()">Agregar</button>
+    
+    </ion-list>
+
+</ion-content>

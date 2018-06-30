@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { BebidasPage } from '../pages/bebidas/bebidas';
+import { AddPage } from '../pages/add/add';
 
 //plugins angularfire2
 import { AngularFireModule } from 'angularfire2';
@@ -18,7 +19,8 @@ import { environment } from '../environments/environment';
   declarations: [
     MyApp,
     HomePage,
-    BebidasPage
+    BebidasPage,
+    AddPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { environment } from '../environments/environment';
   entryComponents: [
     MyApp,
     HomePage,
-    BebidasPage
+    BebidasPage,
+    AddPage
   ],
   providers: [
     StatusBar,
