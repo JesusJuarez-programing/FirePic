@@ -1,9 +1,10 @@
 <ion-header>
+
   <ion-navbar color="dark">
-    <ion-title>
-      <button ion-button clear item-end (tap)="close()">Cerrar</button>
-    </ion-title>
+
+    <button ion-button clear item-end (tap)="close()">Cerrar</button>
   </ion-navbar>
+
 </ion-header>
 
 
@@ -22,10 +23,19 @@
       </ion-item>
     
       <ion-item>
-        <button ion-button (tap)="getPicture()" ><ion-icon name="images"> Seleccionar Imagen</ion-icon></button>
+        <ion-label fixed>Imagen</ion-label>
       </ion-item>
 
-      <button ion-button block (tap)="agregarPlatillo()">Agregar</button>
+      <ion-item *ngIf="imagePreview">
+        <img [src]="imagePreview">
+      </ion-item>
+
+      <ion-fab>
+        <button ion-fab mini (click)="showGalery()"> <ion-icon name="logo-instagram"></ion-icon></button>
+        <button ion-fab mini (click)="showCamera()"><ion-icon name="images"></ion-icon></button>
+        <button ion-fab mini (click)="agregarPlatillo()"><ion-icon name="add"></ion-icon></button>
+        </ion-fab>
+        
     
     </ion-list>
 
