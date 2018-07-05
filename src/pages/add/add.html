@@ -2,7 +2,7 @@
 
   <ion-navbar color="dark">
 
-    <button ion-button clear item-end (tap)="close()">Cerrar</button>
+    <button ion-button clear item-end (tap)="viewCtrl.dismiss()">Cerrar</button>
   </ion-navbar>
 
 </ion-header>
@@ -22,7 +22,7 @@
         <ion-input [(ngModel)]="tipo" type="text"></ion-input>
       </ion-item>
     
-      ion-item *ngIf="imagePreview">
+      <ion-item *ngIf="imagePreview">
       <img [src]="imagePreview">
       <div>{{ uploadPercent | async }}%</div>
       <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
