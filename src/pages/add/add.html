@@ -22,17 +22,40 @@
         <ion-input [(ngModel)]="tipo" type="text"></ion-input>
       </ion-item>
     
-      <ion-item>
-        <ion-label fixed>Imagen</ion-label>
-      </ion-item>
+      ion-item *ngIf="imagePreview">
+      <img [src]="imagePreview">
+      <div>{{ uploadPercent | async }}%</div>
+      <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
+    </ion-item>
 
-      <ion-item *ngIf="imagePreview">
-        <img [src]="imagePreview">
-      </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-only block (tap)="presentarCamara(1)">
+            <ion-icon name="camera"></ion-icon>
+            Cámara
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-only block (tap)="presentarCamara(0)">
+            <ion-icon name="image"></ion-icon>
+            Galería
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    
+    <br>
+
+    <input type="file" accept="image/*" (change)="uploadFile($event)" />
+    <div>{{ uploadPercent | async }}%</div>
+     <a [href]="downloadURL | async">URL: {{ downloadURL | async }}</a> 
+    
+
+    <br>
 
       <ion-fab>
-        <button ion-fab mini (click)="showGalery()"> <ion-icon name="logo-instagram"></ion-icon></button>
-        <button ion-fab mini (click)="showCamera()"><ion-icon name="images"></ion-icon></button>
         <button ion-fab mini (click)="agregarPlatillo()"><ion-icon name="add"></ion-icon></button>
         </ion-fab>
         
